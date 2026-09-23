@@ -68,3 +68,28 @@
     display: inline;
   }
 }
+
+/*
+ * En un teléfono angosto las 4 pestañas no caben en una fila con el tamaño
+ * normal: la última quedaba fuera del área visible, sin ningún indicio de
+ * que había que hacer scroll (parecía que el botón no existía). Se
+ * comprime lo justo para que las 4 quepan siempre, sin scroll.
+ */
+@media (max-width: 420px) {
+  .tabs {
+    gap: 4px;
+  }
+
+  .tab {
+    gap: 4px;
+    padding: 7px 7px;
+    font-size: 0.76rem;
+    border-radius: 11px;
+  }
+
+  .tab__n {
+    padding: 1px 4px;
+    font-size: 0.62rem;
+    border-radius: 5px;
+  }
+}

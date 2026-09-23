@@ -81,6 +81,12 @@ src/
 - **`Huella` decorativa vs. informativa:** cuando la huella va al lado de un nombre visible
   (una tarjeta, un botón de vecina), se pasa `decorative` para que no duplique el nombre
   accesible del botón que la contiene. Sin `decorative`, lleva `role="img"` y `aria-label`.
+- **Las 4 pestañas de `StationTabs` deben caber siempre en una fila, sin scroll, desde 360 px.**
+  Bug real encontrado: `.tabs` tiene `overflow-x: auto` pero eso no evita que el contenido se
+  corte silenciosamente cuando no cabe; la última pestaña quedaba con 0 px visibles, así que
+  parecía que el botón no existía en vez de sugerir que había que hacer scroll. Al tocar el
+  tamaño de las pestañas (texto, padding, o el número de estaciones), verificar con
+  `tabs.scrollWidth <= tabs.clientWidth` en 360 px, no solo mirar una captura de escritorio.
 - **Nunca poner `role` en un `<button>`** (por ejemplo `role="listitem"`): le quita el rol nativo
   de botón y rompe `getByRole("button", ...)` en las pruebas y en cualquier lector de pantalla.
 - **Nunca meter efectos secundarios dentro de una función de actualización de `setState`** (por

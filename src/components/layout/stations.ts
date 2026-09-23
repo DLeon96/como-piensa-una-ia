@@ -14,7 +14,7 @@ export const STATIONS: readonly StationMeta[] = [
   { id: 1, name: "Cada palabra tiene una huella", short: "Huellas" },
   { id: 2, name: "El álbum de las palabras", short: "Álbum" },
   { id: 3, name: "La máquina completa la frase", short: "Frases" },
-  { id: 4, name: "Búsqueda semántica", short: "Búsqueda" },
+  { id: 4, name: "Búsqueda semántica", short: "Buscar" },
 ];
 
 export const STATION_COUNT = STATIONS.length;
