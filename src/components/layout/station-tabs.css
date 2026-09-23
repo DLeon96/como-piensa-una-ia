@@ -73,9 +73,11 @@
  * En un teléfono angosto las 4 pestañas no caben en una fila con el tamaño
  * normal: la última quedaba fuera del área visible, sin ningún indicio de
  * que había que hacer scroll (parecía que el botón no existía). Se
- * comprime lo justo para que las 4 quepan siempre, sin scroll.
+ * comprime lo justo para que las 4 quepan siempre, sin scroll. El corte
+ * real medido va de 421 a 510px (hasta 84px de sobrante); 520px deja
+ * margen de sobra.
  */
-@media (max-width: 420px) {
+@media (max-width: 520px) {
   .tabs {
     gap: 4px;
   }

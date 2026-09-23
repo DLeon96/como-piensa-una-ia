@@ -84,9 +84,18 @@ src/
 - **Las 4 pestañas de `StationTabs` deben caber siempre en una fila, sin scroll, desde 360 px.**
   Bug real encontrado: `.tabs` tiene `overflow-x: auto` pero eso no evita que el contenido se
   corte silenciosamente cuando no cabe; la última pestaña quedaba con 0 px visibles, así que
-  parecía que el botón no existía en vez de sugerir que había que hacer scroll. Al tocar el
-  tamaño de las pestañas (texto, padding, o el número de estaciones), verificar con
-  `tabs.scrollWidth <= tabs.clientWidth` en 360 px, no solo mirar una captura de escritorio.
+  parecía que el botón no existía en vez de sugerir que había que hacer scroll. El breakpoint
+  compacto de `station-tabs.css` corre de 360 a 520 px (medido a mano: sin él, entre 421 y 510 px
+  sobraban hasta 84 px de contenido). Al tocar el tamaño de las pestañas (texto, padding, o el
+  número de estaciones), volver a medir `tabs.scrollWidth <= tabs.clientWidth` en todo ese rango,
+  no solo en 360 px ni solo en una captura de escritorio: el punto de quiebre real casi nunca es
+  el ancho que se prueba primero.
+- **Debajo de 1000 px (sin el título), el header fuerza 2 filas siempre: logo y sonido arriba
+  (`order` + `space-between`), pestañas abajo ocupando el ancho completo (`flex-basis: 100%`).**
+  Dejar que `flex-wrap` sola decidiera el orden daba resultados distintos según el ancho exacto
+  (a veces el sonido quedaba solo en una tercera fila), agregando alto de sobra antes de llegar
+  al contenido de la estación, algo que en una charla en vivo se traduce en tener que bajar
+  mucho el celular para ver el resultado.
 - **Nunca poner `role` en un `<button>`** (por ejemplo `role="listitem"`): le quita el rol nativo
   de botón y rompe `getByRole("button", ...)` en las pruebas y en cualquier lector de pantalla.
 - **Nunca meter efectos secundarios dentro de una función de actualización de `setState`** (por

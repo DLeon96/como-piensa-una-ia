@@ -74,4 +74,21 @@
   .header__titles {
     display: none;
   }
+
+  /*
+   * Sin el título, dejar que el logo, las pestañas y el sonido se
+   * acomoden solos producía un orden distinto (y una fila extra) según
+   * el ancho exacto: a veces el sonido quedaba solo en su propia fila,
+   * agregando alto de sobra antes de llegar al contenido. Se fuerzan 2
+   * filas siempre: logo y sonido arriba (bien separados), pestañas
+   * abajo ocupando todo el ancho.
+   */
+  .header__actions {
+    order: 1;
+  }
+
+  .tabs {
+    order: 2;
+    flex-basis: 100%;
+  }
 }
