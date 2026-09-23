@@ -1,0 +1,44 @@
+.card {
+  background: var(--card);
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card__kicker {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: var(--text-micro);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--violet-ink);
+}
+
+.card__title {
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: var(--text-title);
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+}
+
+.card__hint {
+  color: var(--muted);
+  font-size: var(--text-body);
+  line-height: 1.5;
+}
+
+.card__hint b {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}

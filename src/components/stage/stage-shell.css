@@ -1,0 +1,66 @@
+.stage {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.stage__main {
+  flex: 1;
+  width: 100%;
+  max-width: var(--content-w);
+  margin: 0 auto;
+  padding: var(--space-5) var(--space-5) var(--space-7);
+  overflow-x: clip;
+}
+
+/* Envoltorio que GSAP anima al cambiar de estación (pase de página). */
+.stage__panel {
+  will-change: transform, opacity;
+}
+
+.stage__foot {
+  position: sticky;
+  bottom: 0;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-3) var(--space-5);
+  background: var(--paper-92);
+  backdrop-filter: blur(6px);
+  border-top: 1px solid var(--line);
+}
+
+.stage__hint {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.stage__nav {
+  display: flex;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .stage__main {
+    padding: var(--space-4) var(--space-3) var(--space-6);
+  }
+
+  .stage__foot {
+    padding: var(--space-2) var(--space-3);
+  }
+
+  .stage__hint {
+    display: none;
+  }
+}

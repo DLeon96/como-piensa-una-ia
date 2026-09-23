@@ -1,0 +1,70 @@
+.tabs {
+  display: flex;
+  gap: var(--space-2);
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 2px;
+}
+
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tab {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 0.9rem;
+  background: var(--card);
+  border: 1.5px solid var(--line);
+  color: var(--ink);
+  padding: 10px 15px;
+  border-radius: 14px;
+  transition:
+    transform var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard),
+    background var(--duration-fast) var(--ease-standard);
+}
+
+.tab:hover {
+  transform: translateY(-1px);
+  border-color: var(--violet);
+}
+
+.tab__n {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.75rem;
+  background: var(--paper);
+  border-radius: 7px;
+  padding: 2px 7px;
+  color: var(--muted);
+}
+
+.tab--active {
+  background: var(--violet);
+  border-color: var(--violet);
+  color: #ffffff;
+}
+
+.tab--active .tab__n {
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+.tab__short {
+  display: none;
+}
+
+@media (max-width: 1360px) {
+  .tab__long {
+    display: none;
+  }
+
+  .tab__short {
+    display: inline;
+  }
+}

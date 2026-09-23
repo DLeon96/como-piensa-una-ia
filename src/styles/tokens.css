@@ -1,0 +1,176 @@
+/*
+ * Tokens de diseño del tema "atlas sobre papel".
+ * Única fuente de color, tipografía, espaciado y movimiento: ningún
+ * componente usa un hex o un px suelto.
+ *
+ * Regla de contraste: los colores "vivos" (ámbar, verde, coral, teal) sirven
+ * para relleno y bordes; para TEXTO se usan sus variantes `--*-ink`, que
+ * pasan 4.5:1 sobre papel y sobre blanco.
+ */
+:root {
+  /* Papel y tinta */
+  --paper: #f5f1ea;
+  --paper-92: rgba(245, 241, 234, 0.92);
+  --paper-deep: #ece6da;
+  --card: #ffffff;
+  --ink: #1c1830;
+  --ink-soft: #3b3552;
+  --muted: #6a6580;
+  --line: #e7e2d8;
+  --line-strong: #d6cfbf;
+
+  /* Acentos (relleno y bordes) */
+  --violet: #6d3beb;
+  --violet-soft: #efeafd;
+  --coral: #ff4d6d;
+  --coral-soft: #ffe7ec;
+  --teal: #0bb59f;
+  --teal-soft: #e0f6f2;
+  --amber: #ffab1f;
+  --amber-soft: #fff2d9;
+  --green: #3aa76d;
+  --green-soft: #e3f5ea;
+
+  /* Acentos para texto (contraste AA) */
+  --violet-ink: #5a2bd6;
+  --coral-ink: #c81e46;
+  --teal-ink: #066f60;
+  --amber-ink: #85500a;
+  --green-ink: #1c7446;
+
+  /* Constelaciones */
+  --cat-animales: var(--green);
+  --cat-comida: var(--amber);
+  --cat-ciencia: var(--teal);
+  --cat-emociones: var(--coral);
+  --cat-tecnologia: var(--violet);
+  --cat-animales-ink: var(--green-ink);
+  --cat-comida-ink: var(--amber-ink);
+  --cat-ciencia-ink: var(--teal-ink);
+  --cat-emociones-ink: var(--coral-ink);
+  --cat-tecnologia-ink: var(--violet-ink);
+
+  /* Rasgos neutros (los que no son categoría) */
+  --trait-tamano: #4a7fc4;
+  --trait-agradable: #d9822b;
+
+  /*
+   * Tipografía institucional UA (Manual de Normas Gráficas): la marca usa
+   * Helvetica Rounded para el isologo y Futura (Light/HV/XBlk) para la
+   * jerarquía de textos, con la sugerencia expresa de no mezclar familias.
+   * Ninguna de las dos está disponible como fuente web libre (son
+   * comerciales y no vienen incluidas en los materiales de la Universidad);
+   * "Jost" es la alternativa gratuita más cercana a Futura (mismo trazo
+   * geométrico y circular), así que hace ambos roles: título y UI.
+   */
+  --font-ui: "Jost", system-ui, -apple-system, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-display: "Jost", system-ui, -apple-system, sans-serif;
+
+  --text-title: clamp(1.25rem, 2vw, 1.6rem);
+  --text-body: 0.95rem;
+  --text-small: 0.82rem;
+  --text-micro: 0.7rem;
+
+  /* Espaciado */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+
+  /* Formas y sombras */
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-pill: 999px;
+  --shadow-card: 0 20px 50px -30px rgba(28, 24, 48, 0.35);
+  --shadow-soft: 0 8px 24px -16px rgba(28, 24, 48, 0.35);
+
+  /* Movimiento */
+  --ease-standard: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 0.15s;
+  --duration-standard: 0.35s;
+
+  /* Layout */
+  --content-w: 880px;
+  --focus-ring: 0 0 0 3px rgba(109, 59, 235, 0.45);
+
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--paper);
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*
+ * Grano de papel: textura casi imperceptible que rompe la planitud digital.
+ * Solo decorativo (multiply + pointer-events none).
+ */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  opacity: 0.4;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.11 0 0 0 0 0.09 0 0 0 0 0.19 0 0 0 0.16 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+button,
+select,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Foco visible en toda la app: nunca se quita, solo se re-estiliza. */
+:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+  border-radius: var(--radius-sm);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

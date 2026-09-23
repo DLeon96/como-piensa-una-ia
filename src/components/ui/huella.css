@@ -1,0 +1,14 @@
+.huella {
+  display: block;
+  overflow: visible;
+}
+
+.huella--lg {
+  filter: drop-shadow(0 10px 16px rgba(28, 24, 48, 0.22));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .huella--live path {
+    transition: d 0.05s linear;
+  }
+}

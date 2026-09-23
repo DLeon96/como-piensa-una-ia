@@ -1,0 +1,134 @@
+.vs__load {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.vs__load .chip-btn {
+  padding: 7px 10px;
+}
+
+.vs__load-label {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-right: 2px;
+}
+
+.vs__body {
+  display: flex;
+  gap: var(--space-5);
+  align-items: center;
+}
+
+.vs__rows {
+  flex: 1 1 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.vs__huella-wrap {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: var(--paper);
+  border-radius: var(--radius-md);
+  padding: 14px;
+}
+
+.vs__huella-caption {
+  max-width: 15ch;
+  text-align: center;
+  font-size: 0.74rem;
+  line-height: 1.35;
+  color: var(--muted);
+}
+
+.vs__huella-caption b {
+  color: var(--ink);
+}
+
+.vs__result {
+  background: var(--violet-soft);
+  border-radius: 14px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.vs__result-kicker {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--violet-ink);
+}
+
+.vs__result-word {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.7rem;
+  line-height: 1.1;
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+}
+
+.vs__result-pct {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: var(--violet-ink);
+}
+
+.vs__others {
+  display: flex;
+  gap: 8px;
+}
+
+.vs__other {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  background: var(--card);
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  padding: 6px 12px 8px;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 0.8rem;
+  transition: border-color var(--duration-fast) var(--ease-standard);
+}
+
+.vs__other:hover {
+  border-color: var(--violet);
+}
+
+.vs__other-pct {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.72rem;
+  color: var(--violet-ink);
+}
+
+.vs__disclaimer {
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 640px) {
+  .vs__body {
+    flex-direction: column;
+  }
+}

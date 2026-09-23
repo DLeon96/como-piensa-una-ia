@@ -1,0 +1,13 @@
+.logo {
+  display: block;
+  width: auto;
+  object-fit: contain;
+}
+
+.logo--sm {
+  height: 42px;
+}
+
+.logo--lg {
+  height: clamp(56px, 8vh, 84px);
+}
