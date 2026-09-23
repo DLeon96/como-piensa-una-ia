@@ -96,6 +96,19 @@ src/
   (a veces el sonido quedaba solo en una tercera fila), agregando alto de sobra antes de llegar
   al contenido de la estación, algo que en una charla en vivo se traduce en tener que bajar
   mucho el celular para ver el resultado.
+- **Las pestañas usan nombre corto (`tab__short`) desde 1550 px, no 1360 px.** Un notebook de
+  15" típico (1366 o 1440 px de ancho) quedaba justo por encima del breakpoint viejo: el nombre
+  largo de las 4 pestañas no cabía junto al logo y el sonido, así que el header usaba 2 filas en
+  vez de 1 (129 px de alto en vez de 71 px). Antes de tocar este breakpoint, probar con Playwright
+  en 1366 y 1440 px, no solo en 1920 px: ahí es donde se nota.
+- **El "hay que bajar mucho con scroll" en una laptop es un problema de ALTO de viewport, no de
+  ancho: se corrige con `@media (max-height: ...)`, no con `max-width`.** `.stage__main` y `.card`
+  (`stage-shell.css`, `card.css`) achican su padding bajo 820 px de alto de viewport (común en un
+  notebook de 15" con la barra del navegador restando espacio a la pantalla). Medido con
+  `document.documentElement.scrollHeight` contra `window.innerHeight` en 1366×768: bajó de 206 px
+  de scroll de sobra a 48 px solo con esto, más los dos puntos anteriores. El tamaño de la huella
+  principal de la estación 1 (`VectorStation.tsx`) también se achicó de 168 a 128 px por el mismo
+  motivo, ya que era el elemento más alto de esa fila.
 - **Nunca poner `role` en un `<button>`** (por ejemplo `role="listitem"`): le quita el rol nativo
   de botón y rompe `getByRole("button", ...)` en las pruebas y en cualquier lector de pantalla.
 - **Nunca meter efectos secundarios dentro de una función de actualización de `setState`** (por

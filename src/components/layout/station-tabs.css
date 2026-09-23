@@ -59,7 +59,13 @@
   display: none;
 }
 
-@media (max-width: 1360px) {
+/*
+ * 1550px (no 1360px) a propósito: cubre anchos típicos de notebook
+ * (1366, 1440) donde el nombre largo de las 4 pestañas ya no cabía junto
+ * al logo y el sonido en una sola fila, y el header terminaba usando 2
+ * filas (más alto, más scroll para llegar al contenido).
+ */
+@media (max-width: 1550px) {
   .tab__long {
     display: none;
   }

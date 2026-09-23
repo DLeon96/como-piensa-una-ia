@@ -108,7 +108,7 @@ export function VectorStation({ reducedMotion }: StationProps) {
             color="var(--violet)"
             compareVec={top?.word.vec}
             compareColor={top ? `var(${CATEGORIES[top.word.categoryId].colorVar})` : undefined}
-            size={168}
+            size={128}
             className="huella--lg huella--live"
             title="Tu huella comparada con la más parecida"
           />

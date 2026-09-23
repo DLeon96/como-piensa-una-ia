@@ -64,3 +64,15 @@
     display: none;
   }
 }
+
+/*
+ * Una laptop de 15" suele dar un viewport bajo (768 o 900px de pantalla,
+ * menos la barra del navegador): sin esto, alcanzar el resultado de una
+ * estación pedía scrollear de más. Se achica el aire arriba y abajo de la
+ * tarjeta, no el contenido en sí.
+ */
+@media (max-height: 820px) {
+  .stage__main {
+    padding: var(--space-4) var(--space-5) var(--space-5);
+  }
+}

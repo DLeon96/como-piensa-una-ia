@@ -42,3 +42,14 @@
   flex-direction: column;
   gap: 14px;
 }
+
+@media (max-height: 820px) {
+  .card {
+    padding: 16px;
+    gap: 8px;
+  }
+
+  .card__body {
+    gap: 10px;
+  }
+}
